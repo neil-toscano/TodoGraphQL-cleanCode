@@ -1,0 +1,59 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  id: Int!
+  description: String!
+  done: Boolean!
+}
+
+type Query {
+  """hola mundo, retorno"""
+  hello: String!
+  randoNumber: Float!
+
+  """From zero to Argument"""
+  randomFromZeroTo(to: Int = 5): Int!
+
+  """Obtener lista de los Todos"""
+  listTodo(status: Boolean): [Todo!]!
+
+  """Encontrar por id"""
+  findOneTodo(id: Int = 1): Todo!
+
+  """all Todo"""
+  totalTodos: Int!
+
+  """all completed Todo"""
+  completedTodos: Int!
+
+  """all pending Todos"""
+  pendingTodos: Int!
+}
+
+type Mutation {
+  """vamos a crear un Todo con mutations"""
+  createTodo123(createTodoInput: CreateTodoInput!): Todo!
+
+  """Vamos actualizar los Todo"""
+  Update123(updateTodoInput: UpdateTodoInput!): Todo!
+
+  """Eliminar todo"""
+  DeleteById(id: Int!): String!
+}
+
+input CreateTodoInput {
+  """what needs to be done"""
+  description: String!
+}
+
+input UpdateTodoInput {
+  id: Int!
+
+  """what needs to be done"""
+  description: String
+
+  """done"""
+  done: Boolean
+}
